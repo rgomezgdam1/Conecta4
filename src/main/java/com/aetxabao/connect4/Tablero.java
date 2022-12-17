@@ -1,7 +1,7 @@
 package com.aetxabao.connect4;
 
 /**
- * @author Nombre Apellido
+ * @author Rubén Gómez García
  */
 public class Tablero {
 
@@ -31,11 +31,33 @@ public class Tablero {
 
     public Tablero(char[][] m) {
         //TODO: Tablero(m)
-        contador = 0;
-        turno = X;
-        ancho = 0;
-        alto = 0;
-        this.m = m;
+        ancho = W;
+        alto = H;
+        int countX = 0;
+        int count0 = 0;
+        char[][] n = new char[ancho][alto];
+
+        if (m.length != n.length || m[0].length != n[0].length){
+        for (int i = 0; i < ancho; i++) {
+            for (int j = 0; j < alto; j++) {
+                n[i][j] = m[i][j];
+                if (n[i][j] == X){
+                    countX ++;
+                }
+                else if (n[i][j] == O){
+                    count0 ++;
+                }
+                contador++;
+            }
+            }
+        }
+        if (count0 > countX) {
+            turno = X;
+        }
+        else{
+            turno = O;
+        }
+        this.m = n;
     }
 
     public int getAncho() {
@@ -60,16 +82,38 @@ public class Tablero {
 
     public void iniciaTurno() {
         //TODO: iniciaTurno
+        int n = (int)Math.random();
+        if (n == 0){
+            turno = X;
+        }
+        else{
+            turno = O;
+        }
     }
 
     public void cambiaTurno() {
         //TODO: cambiaTurno
+        if(turno == X){
+            turno = O;
+        }
+        else if (turno == O) {
+            turno = X;
+        }
     }
 
     public boolean estaColumnaLibre(int columna) {
         //TODO: estaColumnaLibre
+        if(columna < 0 || columna > m[0].length -1){
+            return false;
+        }
+        for (int i = 0; i < m[columna].length; i++) {
+            if (m[columna][i] == L){
+                return true;
+            }
+        }
         return false;
-    }
+        }
+
 
     public void inserta(char ficha, int columna) {
         //TODO: insertar
