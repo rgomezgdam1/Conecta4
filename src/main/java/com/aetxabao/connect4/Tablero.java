@@ -31,24 +31,23 @@ public class Tablero {
 
     public Tablero(char[][] m) {
         //TODO: Tablero(m)
-        ancho = W;
-        alto = H;
+        this.m = m;
+        contador =0;
+        ancho = m.length;
+        alto = m[0].length;
         int countX = 0;
         int count0 = 0;
-        char[][] n = new char[ancho][alto];
 
-        if (m.length != n.length || m[0].length != n[0].length){
         for (int i = 0; i < ancho; i++) {
             for (int j = 0; j < alto; j++) {
-                n[i][j] = m[i][j];
-                if (n[i][j] == X){
+                if (m[i][j] == X){
                     countX ++;
+                    contador++;
                 }
-                else if (n[i][j] == O){
+                else if (m[i][j] == O){
                     count0 ++;
+                    contador++;
                 }
-                contador++;
-            }
             }
         }
         if (count0 > countX) {
@@ -57,7 +56,6 @@ public class Tablero {
         else{
             turno = O;
         }
-        this.m = n;
     }
 
     public int getAncho() {
@@ -82,7 +80,7 @@ public class Tablero {
 
     public void iniciaTurno() {
         //TODO: iniciaTurno
-        int n = (int)Math.random();
+        int n = (int)Math.round(Math.random());
         if (n == 0){
             turno = X;
         }
