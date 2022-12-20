@@ -42,14 +42,18 @@ public class Salida {
         System.out.println("###################################");
         System.out.println("                                   ");
         char[] letras = {'A','B','C','D','E','F'};
-
-
-
-
-
-
-
-
+        for (int i = 0; i < h; i++) {
+            for (int j = 0; j < w; j++) {
+                if (j == 0){
+                    System.out.print(letras[letras.length - i - 1] + "  |");
+                }
+                System.out.print(" " + matriz[j][matriz.length - i - 2] + " |");
+                if (j == w - 1){
+                    System.out.print("  " + letras[letras.length - i - 1]);
+                }
+            }
+            System.out.println();
+        }
         System.out.println("   -----------------------------   ");
         System.out.println("   | 1 | 2 | 3 | 4 | 5 | 6 | 7 |   ");
         System.out.println("                                   ");

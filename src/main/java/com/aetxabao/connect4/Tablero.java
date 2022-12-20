@@ -30,7 +30,6 @@ public class Tablero {
     }
 
     public Tablero(char[][] m) {
-        //TODO: Tablero(m)
         this.m = m;
         contador =0;
         ancho = m.length;
@@ -79,7 +78,6 @@ public class Tablero {
     }
 
     public void iniciaTurno() {
-        //TODO: iniciaTurno
         int n = (int)Math.round(Math.random());
         if (n == 0){
             turno = X;
@@ -90,7 +88,6 @@ public class Tablero {
     }
 
     public void cambiaTurno() {
-        //TODO: cambiaTurno
         if(turno == X){
             turno = O;
         }
@@ -100,7 +97,6 @@ public class Tablero {
     }
 
     public boolean estaColumnaLibre(int columna) {
-        //TODO: estaColumnaLibre
         if(columna < 0 || columna > m[0].length -1){
             return false;
         }
@@ -115,6 +111,23 @@ public class Tablero {
 
     public void inserta(char ficha, int columna) {
         //TODO: insertar
+        if (estaColumnaLibre(columna) == false){
+            System.err.println("Error, la columna introducida está llena");
+        }
+        else {
+            for (int i = 0; i < alto; i++) {
+                if (m[columna][i] == L){
+                    switch (ficha){
+                        case X: m[columna][i] = X;
+                                contador ++;
+                        break;
+                        case O: m[columna][i] = O;
+                                contador ++;
+                        break;
+                    }
+                }
+            }
+        }
     }
 
     public boolean estaLleno() {
