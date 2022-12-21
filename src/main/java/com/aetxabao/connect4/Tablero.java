@@ -126,7 +126,7 @@ public class Tablero {
     }
 
     public boolean estaLleno() {
-        return contador == alto*ancho;
+        return contador == m.length*m[0].length;
     }
 
     public boolean gana(char jugador) {
