@@ -110,12 +110,7 @@ public class Tablero {
 
 
     public void inserta(char ficha, int columna) {
-        //TODO: insertar
-        if (estaColumnaLibre(columna) == false){
-            System.err.println("Error, la columna introducida está llena");
-        }
-        else {
-            for (int i = 0; i < alto; i++) {
+            for (int i = 0; i < m[1].length; i++) {
                 if (m[columna][i] == L){
                     switch (ficha){
                         case X: m[columna][i] = X;
@@ -125,9 +120,9 @@ public class Tablero {
                                 contador ++;
                         break;
                     }
+                    break;
                 }
             }
-        }
     }
 
     public boolean estaLleno() {
