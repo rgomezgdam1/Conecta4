@@ -97,7 +97,7 @@ public class Tablero {
     }
 
     public boolean estaColumnaLibre(int columna) {
-        if(columna < 0 || columna > m[0].length -1){
+        if(columna < 0 || columna > m[0].length){
             return false;
         }
         for (int i = 0; i < m[columna].length; i++) {
@@ -110,7 +110,7 @@ public class Tablero {
 
 
     public void inserta(char ficha, int columna) {
-            for (int i = 0; i < m[1].length; i++) {
+            for (int i = 0; i < m[i].length; i++) {
                 if (m[columna][i] == L){
                     switch (ficha){
                         case X: m[columna][i] = X;
