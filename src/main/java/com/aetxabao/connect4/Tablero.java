@@ -110,7 +110,7 @@ public class Tablero {
 
 
     public void inserta(char ficha, int columna) {
-            for (int i = 0; i < m[i].length; i++) {
+            for (int i = 0; i < m[1].length; i++) {
                 if (m[columna][i] == L){
                     switch (ficha){
                         case X: m[columna][i] = X;
